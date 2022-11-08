@@ -69,7 +69,7 @@ const events: IEvent[] = [
 
 
 let calendarNavigate: (navigate: NavigateAction, date?: Date) => void = null;
-
+let buttonNavigate: (navigate: NavigateAction) => void;
 
 const MyCalendar = () => {
 
@@ -80,7 +80,7 @@ const MyCalendar = () => {
 
             <Stack style={{ marginTop: "81px", paddingLeft: "50px", gap: "20px" }} className='roomDesc'>
 
-                <FluentCalendar 
+                <FluentCalendar onPrev={() => calendarNavigate("PREV")} onNext={() => calendarNavigate("NEXT")}
                     onChangeDate={(date) => calendarNavigate("DATE", date)} />
                 <Text variant='xxLarge'>Mødelokaler</Text>
                 {meetingRooms.map((room) => {

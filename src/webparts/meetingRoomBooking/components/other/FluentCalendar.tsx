@@ -6,7 +6,8 @@ import { NavigateAction, ToolbarProps } from 'react-big-calendar';
 
 export interface IFluentCalendarProps {
   onChangeDate: (d: Date) => void;
-  onButtonNavigate: (toolbarBtn: ToolbarProps, n: NavigateAction) => void;
+  onPrev: () => void;
+  onNext: () => void;
 }
 
 
@@ -21,10 +22,7 @@ export const FluentCalendar = (props: IFluentCalendarProps) => {
     props.onChangeDate(date)
   }
 
-  const onButtonSelect = (btn: ToolbarProps, btnNavigation: NavigateAction): void => {
-    btn.onNavigate(btnNavigation);
-    props.onButtonNavigate(btn, btnNavigation);
-  }
+
 
 
   return (
@@ -39,8 +37,8 @@ export const FluentCalendar = (props: IFluentCalendarProps) => {
         firstDayOfWeek={firstDayOfWeek}
       />
       <Stack style={{ display: "flex", justifyContent: "flex-start" }} horizontal tokens={{ padding: "7px", childrenGap: "9px" }} className='rbc-toolbar'>
-        <PrimaryButton onClick={() => onButtonSelect("PREV") }text='Previous' />
-        <DefaultButton onClick={() => onButtonSelect("NEXT")} text='Next' />
+        <PrimaryButton onClick={() => props.onPrev() }text='Previous' />
+        <DefaultButton onClick={() => props.onNext()} text='Next' />
       </Stack>
     </div>
   )
