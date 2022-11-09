@@ -10,7 +10,6 @@ import { IMeetingRoom } from '../../models/IMeetingRoom';
 import { IEvent } from '../../models/IEvent';
 import MeetingRoomsDesc from './MeetingRoomsDesc';
 import { FluentCalendar } from './FluentCalendar';
-import { CustomToolbar } from './CustomToolbar';
 
 moment.tz.setDefault('Europe/Paris')
 const localizer = momentLocalizer(moment)
@@ -69,7 +68,6 @@ const events: IEvent[] = [
 
 
 let calendarNavigate: (navigate: NavigateAction, date?: Date) => void = null;
-let buttonNavigate: (navigate: NavigateAction) => void;
 
 const MyCalendar = () => {
 
@@ -80,9 +78,10 @@ const MyCalendar = () => {
 
             <Stack style={{ marginTop: "81px", paddingLeft: "50px", gap: "20px" }} className='roomDesc'>
 
-                <FluentCalendar onPrev={() => calendarNavigate("PREV")} onNext={() => calendarNavigate("NEXT")}
-                    onChangeDate={(date) => calendarNavigate("DATE", date)} />
-                <Text variant='xxLarge'>Mødelokaler</Text>
+                <FluentCalendar 
+                    onPrev={() => calendarNavigate("PREV")} onNext={() => calendarNavigate("NEXT")}
+                    onChangeDate={(date) => calendarNavigate("DATE", date)} onToday={() => calendarNavigate("TODAY")} />
+                <Text  variant='xxLarge'>Mødelokaler</Text>
                 {meetingRooms.map((room) => {
                     return (
                         <div>
@@ -101,8 +100,7 @@ const MyCalendar = () => {
                     events={allEvents}
                     startAccessor="start"
                     endAccessor="end"
-                    selectable
-                    style={{ height: "100%", width: "200%", margin: "50px" }}
+                    style={{ height: "100%", width: "100%", margin: "50px" }}
                     eventPropGetter={(event) => {
                         const room = meetingRooms.filter((room) => room.id === event["locationId"])[0];
                         const backgroundColor = room ? room.color : "";
@@ -121,14 +119,11 @@ const toolBarButtonActions = () => {
             calendarNavigate = e.onNavigate;
             return (
                 <div>
-
                 </div>
             );
         }
     }
 }
-
-
 
 
 export default MyCalendar
