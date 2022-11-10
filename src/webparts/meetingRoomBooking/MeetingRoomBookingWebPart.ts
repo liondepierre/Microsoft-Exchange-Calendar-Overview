@@ -20,7 +20,8 @@ export default class MeetingRoomBookingWebPart extends BaseClientSideWebPart<IMe
     const element: React.ReactElement<IMeetingRoomBookingWebPartProps> = React.createElement(
       MeetingRoomBooking,
       {
-        description: this.properties.description
+        description: this.properties.description,
+        context: this.context,
       }
     );
 

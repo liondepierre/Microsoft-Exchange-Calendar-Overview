@@ -68,14 +68,11 @@ export const FluentCalendar = (props: IFluentCalendarProps) => {
 
       <Stack horizontalAlign='space-between' horizontal tokens={{ padding: "7px", childrenGap: "9px" }} className='my-toolbar'>
         <Stack tokens={{childrenGap: "9px"}} horizontal horizontalAlign='start'>
-          {/* <DefaultButton onClick={() => props.onPrev()} text='Previous' /> */}
           <DefaultButton onClick={jumpBackSevenDaysFunc} text='Previous' />
-          {/* <DefaultButton onClick={() => props.onNext()} text='Next' /> */}
           <DefaultButton onClick={jumpSevenDaysFunc} text='Next' />
         </Stack>
         <Stack horizontal horizontalAlign='end'>
-          {/* <Text style={{ cursor: "pointer", color: "firebrick" }} onClick={() => props.onToday()}>Go to today</Text> */}
-          <Text style={{ cursor: "pointer", color: "firebrick" }} onClick={jumpToTodayFunc}>Go to today</Text>
+          <Text style={{ cursor: "pointer"}} onClick={jumpToTodayFunc}>Go to today</Text>
         </Stack>
       </Stack>
     </div>

@@ -78,10 +78,10 @@ const MyCalendar = () => {
 
             <Stack style={{ marginTop: "81px", paddingLeft: "50px", gap: "20px" }} className='roomDesc'>
 
-                <FluentCalendar 
+                <FluentCalendar
                     onPrev={() => calendarNavigate("PREV")} onNext={() => calendarNavigate("NEXT")}
                     onChangeDate={(date) => calendarNavigate("DATE", date)} onToday={() => calendarNavigate("TODAY")} />
-                <Text  variant='xxLarge'>Mødelokaler</Text>
+                <Text variant='xxLarge'>Mødelokaler</Text>
                 {meetingRooms.map((room) => {
                     return (
                         <div>
