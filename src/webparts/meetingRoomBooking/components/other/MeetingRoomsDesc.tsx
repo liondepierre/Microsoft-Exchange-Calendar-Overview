@@ -1,21 +1,21 @@
-import { Stack, Text } from 'office-ui-fabric-react'
-import * as React from 'react'
+import * as React from 'react';
 
-export interface IMeetingRoomDescProps {
+export interface IMeetingRoomsDescProps {
     color: string;
     roomName: string;
     capacity: number;
     location: string
 }
 
-const MeetingRoomsDesc = ({ color, roomName, capacity, location }: IMeetingRoomDescProps) => {
+export const MeetingRoomsDesc: React.FunctionComponent<IMeetingRoomsDescProps> = (props: React.PropsWithChildren<IMeetingRoomsDescProps>) => {
+    console.log(props)
     return (
-        <Stack tokens={{ childrenGap: "5px" }} horizontal>
-            <Stack style={{ marginTop: "3px", backgroundColor: color, width: "15px", height: "15px" }} />
-            <div style={{fontFamily: "Segoe UI", fontWeight: "bold", fontSize: "15px"}}>{roomName}, {capacity} personer, {location}</div>
-        </Stack>
+        <>
+            <div style={{ marginTop: "3px", backgroundColor: props.color, width: "15px", height: "15px" }} />
+            <div style={{ fontFamily: "Segoe UI", fontWeight: "bold", fontSize: "15px" }}>{props.roomName}, {props.capacity} personer, {props.location}</div>
+        </>
+    );
 
-    )
-}
+    
+};
 
-export default MeetingRoomsDesc

@@ -1,18 +1,23 @@
 import * as React from 'react';
 import { Calendar, Components, momentLocalizer, NavigateAction, ToolbarProps, } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-// import '../../../src/addons/dragAndDrop/styles.scss'
-import * as moment from "moment";
+import * as Moment from "moment";
 require('moment/locale/da.js')
 import 'moment-timezone';
-import { PrimaryButton, Stack, Text } from '@fluentui/react';
 import { IMeetingRoom } from '../../models/IMeetingRoom';
 import { IEvent } from '../../models/IEvent';
-import MeetingRoomsDesc from './MeetingRoomsDesc';
 import { FluentCalendar } from './FluentCalendar';
+import { PrimaryButton, Stack, Text } from 'office-ui-fabric-react';
+import { WebPartContext } from '@microsoft/sp-webpart-base';
+import { graphfi, SPFx, GraphFI } from "@pnp/graph";
+import '@pnp/graph/calendars';
+import '@pnp/graph/users';
+import { MeetingRoomsDesc } from './MeetingRoomsDesc';
 
-moment.tz.setDefault('Europe/Paris')
-const localizer = momentLocalizer(moment)
+export interface IMyCalendarProps {
+    context: WebPartContext;
+}
+
 
 
 const meetingRooms: IMeetingRoom[] = [
@@ -31,7 +36,6 @@ const meetingRooms: IMeetingRoom[] = [
         location: "Herning"
     }
 ]
-
 
 const events: IEvent[] = [
     {
@@ -67,11 +71,40 @@ const events: IEvent[] = [
 ]
 
 
+Moment.tz.setDefault('Europe/Paris')
+const localizer = momentLocalizer(Moment)
+let graph: GraphFI;
+let calendarSubjects: Promise<void>;
 let calendarNavigate: (navigate: NavigateAction, date?: Date) => void = null;
 
-const MyCalendar = () => {
+
+export const MyCalendar: React.FunctionComponent<IMyCalendarProps> = (props: React.PropsWithChildren<IMyCalendarProps>) => {
 
     const [allEvents, setAllEvents] = React.useState<IEvent[]>(events);
+    const [calendarEvent, setCalendarEvent] = React.useState<microsoftgraph.Event[]>([])
+
+
+    React.useEffect(() => {
+        graph = graphfi().using(SPFx(props.context));
+        getSpecificCalendar();
+    }, []);
+
+    const getSpecificCalendar = () => {
+        graph.me.events().then(e=>setCalendarEvent(e));
+        // setCalendarEvent(myCalendar)
+    }
+
+    const toolBarButtonActions = () => {
+        return {
+            toolbar: (e: ToolbarProps) => {
+                calendarNavigate = e.onNavigate;
+                return (
+                    <div>
+                    </div>
+                );
+            }
+        }
+    }
 
     return (
         <div style={{ display: "flex", flexDirection: "row" }}>
@@ -108,22 +141,22 @@ const MyCalendar = () => {
                     }}
                 />
             </Stack>
+            <Stack verticalAlign='start'>
+                {calendarEvent.map((calendar:microsoftgraph.Event) => {
+                    console.log(calendar)
+                    return (
+                        <Text variant={'xxLargePlus'}>
+                            {calendar.location?.displayName}
+                            <br />
+                            {calendar.location?.address.city}
+                            <br />
+                            {calendar.location}
+                        </Text>
+                    )
+                })}
+            </Stack>
         </div>
     )
 }
 
 
-const toolBarButtonActions = () => {
-    return {
-        toolbar: (e: ToolbarProps) => {
-            calendarNavigate = e.onNavigate;
-            return (
-                <div>
-                </div>
-            );
-        }
-    }
-}
-
-
-export default MyCalendar

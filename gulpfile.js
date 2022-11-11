@@ -13,6 +13,8 @@ build.rig.getTasks = function () {
   return result;
 };
 
+// * ADDED * // disable tslint build.tslintCmd.enabled = false; // * ADDED *
+
 /* fast-serve */
 const { addFastServe } = require("spfx-fast-serve-helpers");
 addFastServe(build);
