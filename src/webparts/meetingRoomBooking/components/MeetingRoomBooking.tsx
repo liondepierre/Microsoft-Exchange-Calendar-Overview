@@ -1,6 +1,5 @@
 
 import * as React from 'react';
-import "react-big-calendar/lib/css/react-big-calendar.css";
 require('moment/locale/da.js')
 import 'moment-timezone';
 import { WebPartContext } from '@microsoft/sp-webpart-base';

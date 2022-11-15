@@ -8,14 +8,11 @@ export interface IMeetingRoomsDescProps {
 }
 
 export const MeetingRoomsDesc: React.FunctionComponent<IMeetingRoomsDescProps> = (props: React.PropsWithChildren<IMeetingRoomsDescProps>) => {
-    console.log(props)
     return (
         <>
             <div style={{ marginTop: "3px", backgroundColor: props.color, width: "15px", height: "15px" }} />
             <div style={{ fontFamily: "Segoe UI", fontWeight: "bold", fontSize: "15px" }}>{props.roomName}, {props.capacity} personer, {props.location}</div>
         </>
     );
-
-    
 };
 

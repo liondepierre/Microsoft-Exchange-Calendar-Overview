@@ -2,6 +2,24 @@
   text-decoration: none;
 }
 
-// [class="my-toolbar"] {
-//   justify-content: space-between;
-// }
+
+//rbc-button-link
+[class="rbc-button-link"] {
+  font-weight: bold;
+  font-size: 30px;
+  text-decoration: line-through;
+  padding-block: 55px;
+  margin-bottom: 25px;
+  
+}
+
+
+//rbc-row rbc-time-header-cell
+[class="rbc-row rbc-time-header-cell"] {
+text-decoration: line-through;
+}
+
+// rbc-time-view
+[class="rbc-time-gutter rbc-time-column"] {
+  font-weight: lighter;
+}
