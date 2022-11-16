@@ -7,7 +7,7 @@ import { IMeetingRoom } from '../../models/IMeetingRoom';
 import { FluentCalendar } from './FluentCalendar';
 import { addMonths, PrimaryButton, Stack, Text } from 'office-ui-fabric-react';
 import { WebPartContext } from '@microsoft/sp-webpart-base';
-import { graphfi, SPFx, GraphFI } from "@pnp/graph";
+import { graphfi, SPFx, GraphFI, graphGet } from "@pnp/graph";
 import '@pnp/graph/calendars';
 import '@pnp/graph/users';
 import { MeetingRoomsDesc } from './MeetingRoomsDesc';
@@ -32,7 +32,7 @@ const meetingRooms: IMeetingRoom[] = [
     {
         id: 2,
         color: "#6C36D9",
-        roomName: "Lille mødelokale",
+        roomName: "Lille mødelokale", 
         capacity: 4,
         location: "Herning"
     }
@@ -71,7 +71,6 @@ export const MyCalendar: React.FunctionComponent<IMyCalendarProps> = (props: Rea
 
     // const [allEvents, setAllEvents] = React.useState<IEvent[]>(events);
     const [calendarEvent, setCalendarEvent] = React.useState<microsoftgraph.Event[]>([])
-    const [places, setPlaces] = React.useState([])
 
     React.useEffect(() => {
         graph = graphfi().using(SPFx(props.context));
@@ -80,7 +79,7 @@ export const MyCalendar: React.FunctionComponent<IMyCalendarProps> = (props: Rea
 
     const getSpecificCalendar = async () => {
         await graph.me.events().then((e) => setCalendarEvent(e));
-    }
+    }  
 
 
     const toolBarButtonActions = () => {
@@ -108,7 +107,7 @@ export const MyCalendar: React.FunctionComponent<IMyCalendarProps> = (props: Rea
 
     return (
         <div style={{ display: "flex", flexDirection: "row" }}>
-            <h1 className='text'>fewjfewjfij</h1>
+         
             <Stack style={{ marginTop: "81px", paddingLeft: "50px", gap: "20px" }} className='roomDesc'>
                 <FluentCalendar
                     onPrev={() => calendarNavigate("PREV")} onNext={() => calendarNavigate("NEXT")}
@@ -130,7 +129,7 @@ export const MyCalendar: React.FunctionComponent<IMyCalendarProps> = (props: Rea
                     events={data}
                     startAccessor="start"
                     endAccessor="end"
-                    style={{ height: "100%", width: "100%", margin: "50px" }}
+                    style={{ height: "100%", width: "100%", margin: "55px"}}
                     eventPropGetter={(event) => {
                         const room = meetingRooms.filter((room) => room.id === event["locationId"])[0];
                         const backgroundColor = room ? room.color : "";

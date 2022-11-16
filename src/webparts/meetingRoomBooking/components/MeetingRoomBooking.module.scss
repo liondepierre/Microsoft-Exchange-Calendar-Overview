@@ -1,25 +1,42 @@
-.parent {
-  text-decoration: none;
+// .parent {
+//   text-decoration: none;
+// }
+
+
+//rbc-header
+[class="rbc-header"] {
+  border: none;
+}
+[class="rbc-header rbc-today"] {
+  border: none;
 }
 
-
-//rbc-button-link
+// rbc-button-link
 [class="rbc-button-link"] {
-  font-weight: bold;
-  font-size: 30px;
-  text-decoration: line-through;
-  padding-block: 55px;
-  margin-bottom: 25px;
+font-size: 15px;
+margin-bottom: 9px;
+}
+
+// //rbc-button-link
+// [class="rbc-button-link"] {
+//   font-weight: bold;
+//   font-size: 30px;
+//   // text-decoration: line-through;
+//   padding-block: 55px;
+//   margin-bottom: 25px;
   
-}
+// }
+// // rbc-time-header-content
+// [class="rbc-time-header-content"] {
+// }
 
-
-//rbc-row rbc-time-header-cell
-[class="rbc-row rbc-time-header-cell"] {
-text-decoration: line-through;
-}
+// //rbc-row rbc-time-header-cell
+// [class="rbc-row rbc-time-header-cell"] {
+// // text-decoration: line-through;
+// }
 
 // rbc-time-view
-[class="rbc-time-gutter rbc-time-column"] {
-  font-weight: lighter;
-}
+// [class="rbc-time-gutter rbc-time-column"] {
+//   font-weight: normal;
+//   font-size: large;
+// }
