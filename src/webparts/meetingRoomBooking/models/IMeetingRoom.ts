@@ -1,7 +1,7 @@
 export interface IMeetingRoom {
-    id: number;
-    color: string;
+    id: string;
     roomName: string;
     capacity: number;
     location: string;
+    color?: string;
 }

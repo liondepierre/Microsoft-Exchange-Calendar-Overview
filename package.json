@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@fluentui/react": "^8.99.2",
+    "@microsoft/microsoft-graph-client": "^3.0.0",
+    "@microsoft/microsoft-graph-types": "^2.25.0",
     "@microsoft/rush-stack-compiler-4.2": "^0.2.0",
     "@microsoft/sp-core-library": "1.13.1",
     "@microsoft/sp-lodash-subset": "1.13.1",

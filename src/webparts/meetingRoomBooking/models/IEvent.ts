@@ -1,10 +1,9 @@
 
 export interface IEvent {
-    id?: number;
+    id?: string;
     title: string;
     allDay?: boolean
     start: Date;
     end: Date;
-    desc?: string;
-    locationId: number;
+    locationId?: string;
   }
