@@ -20,7 +20,45 @@ display: flex;
 align-items: flex-start;
 }
 
+// rbc-today
+[class="rbc-day-slot rbc-time-column rbc-now rbc-today"] {
+  background-color: #f1f1f1;
+}
 
+//rbc-day-bg rbc-today
+[class="rbc-day-bg rbc-today"] {
+  background-color: #f1f1f1;
+}
+
+// rbc-today
+[class="rbc-header rbc-today"] {
+  background-color: #f1f1f1;
+}
+
+// rbc-timeslot-group
+[class="rbc-timeslot-group"] {
+  border: none;
+}
+
+// rbc-time-content
+[class="rbc-time-content"] {
+  border: none;
+}
+
+// rbc-event
+[class="rbc-event"] {
+  margin-left: 5px;
+}
+
+// rbc-day-slot rbc-event
+[class="rbc-day-slot rbc-event"] {
+  border: 5px solid red;
+}
+
+// rbc-day-slot rbc-background-event
+[class="rbc-day-slot rbc-background-event"] {
+  border: 5px solid red;
+}
 // //rbc-button-link
 // [class="rbc-button-link"] {
 //   font-weight: bold;

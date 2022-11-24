@@ -3,7 +3,7 @@
   "solution": {
     "name": "meeting-room-booking-client-side-solution",
     "id": "23761f8d-e458-43a8-8f58-e2f1a6a60138",
-    "version": "1.0.0.13",
+    "version": "1.0.0.14",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
@@ -30,6 +30,22 @@
       {
         "resource": "Microsoft Graph",
         "scope": "Calendars.ReadWrite.Shared"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "AdministrativeUnit.ReadWrite.All"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "APIConnectors.ReadWrite.All"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "User.ManageIdentities.All"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "User.ReadWrite.All"
       }
     ]
   },

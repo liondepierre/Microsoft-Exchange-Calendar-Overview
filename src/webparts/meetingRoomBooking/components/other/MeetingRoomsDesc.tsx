@@ -1,3 +1,4 @@
+import { Stack } from 'office-ui-fabric-react';
 import * as React from 'react';
 
 export interface IMeetingRoomsDescProps {
@@ -9,10 +10,10 @@ export interface IMeetingRoomsDescProps {
 
 export const MeetingRoomsDesc: React.FunctionComponent<IMeetingRoomsDescProps> = (props: React.PropsWithChildren<IMeetingRoomsDescProps>) => {
     return (
-        <>
-            <div style={{ marginTop: "3px", backgroundColor: props.color, width: "15px", height: "15px" }} />
+        <Stack horizontal>
+            <div style={{ marginRight: "3px", marginTop: "3px", backgroundColor: props.color, width: "15px", height: "15px" }} />
             <div style={{ fontFamily: "Segoe UI", fontWeight: "bold", fontSize: "15px" }}>{props.roomName}, {props.capacity} personer, {props.location}</div>
-        </>
+        </Stack>
     );
 };
 
