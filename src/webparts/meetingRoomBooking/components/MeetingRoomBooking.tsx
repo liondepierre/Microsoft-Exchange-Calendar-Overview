@@ -5,6 +5,8 @@ import 'moment-timezone';
 import { WebPartContext } from '@microsoft/sp-webpart-base';
 import { MyCalendar } from './other/MyCalendar';
 
+
+
 export interface IMeetingRoomBookingProps {
   description: string;
   context: WebPartContext;
@@ -14,9 +16,7 @@ export interface IMeetingRoomBookingProps {
 const MeetingRoomBooking = ({ description, context }: IMeetingRoomBookingProps) => {
 
   return (
-    <div>
       <MyCalendar context={context}/>
-    </div>
   )
 }
 

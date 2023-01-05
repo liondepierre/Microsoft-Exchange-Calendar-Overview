@@ -1,23 +1,19 @@
-// .parent {
-//   text-decoration: none;
-// }
-
-
 //rbc-header
 [class="rbc-header"] {
   border: none;
 }
+
 [class="rbc-header rbc-today"] {
   border: none;
 }
 
 // rbc-button-link
 [class="rbc-button-link"] {
-font-size: 22px;
-margin-bottom: 9px;
-font-weight: bold;
-display: flex;
-align-items: flex-start;
+  font-size: 22px;
+  margin-bottom: 9px;
+  font-weight: bold;
+  display: flex;
+  align-items: flex-start;
 }
 
 // rbc-today
@@ -50,35 +46,122 @@ align-items: flex-start;
   margin-left: 5px;
 }
 
-// rbc-day-slot rbc-event
-[class="rbc-day-slot rbc-event"] {
-  border: 5px solid red;
-}
-
-// rbc-day-slot rbc-background-event
-[class="rbc-day-slot rbc-background-event"] {
-  border: 5px solid red;
-}
-// //rbc-button-link
-// [class="rbc-button-link"] {
-//   font-weight: bold;
-//   font-size: 30px;
-//   // text-decoration: line-through;
-//   padding-block: 55px;
-//   margin-bottom: 25px;
-  
-// }
-// // rbc-time-header-content
-// [class="rbc-time-header-content"] {
-// }
-
-// //rbc-row rbc-time-header-cell
-// [class="rbc-row rbc-time-header-cell"] {
-// // text-decoration: line-through;
-// }
-
 // rbc-time-view
-// [class="rbc-time-gutter rbc-time-column"] {
-//   font-weight: normal;
-//   font-size: large;
-// }
+[class="rbc-time-view"] {
+  border: none;
+}
+
+//rbc-time-header-content
+[class="rbc-time-header-content"] {
+  border: none;
+}
+
+//rbc-time-content
+[class="rbc-time-content"]>*+*>* {
+  border: none;
+}
+
+//.rbc-day-slot .rbc-event, .rbc-day-slot .rbc-background-event
+[class*='rbc-day-slot'] [class="rbc-event"] {
+  border: none;
+}
+
+//ms-Callout-beak beak-222
+[class='ms-Callout-beak beak-222'] {
+  visibility: hidden;
+}
+
+[id="filterBtn"] {
+  cursor: pointer;
+  margin-top: 14px;
+}
+
+[id="clearFilterBtn"] {
+  cursor: pointer;
+  margin-top: 14px;
+}
+
+[id="clearFilterBtn"]:hover {
+  color: firebrick;
+  transform: matrix(0.2);
+}
+
+[id="hasLocationDropdown"] {
+  width: 451px;
+}
+
+[id="hasDisplayDeviceDropdown"] {
+  width: 451px;
+}
+
+[id="hasVideoDeviceDropdown"] {
+  width: 451px;
+}
+
+.myCalendarParent {
+  display: flex;
+  flex-direction: row;
+}
+
+.roomDesc {
+  margin-top: 81px;
+  padding-left: 50px;
+  gap: 20px;
+}
+
+.filterButtons {
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.reactBigCalendarParent {
+  width: 100%;
+}
+
+.reactBigCalendar {
+  height: 100%;
+  width: 100%;
+  margin: 55px;
+}
+
+.chooseEquipmentLabel {
+  margin-bottom: -14px;
+}
+
+#capacityResetBtn {
+  cursor: pointer;
+  margin-left: -14px;
+  margin-top: 7px;
+}
+
+#capacityResetBtn:hover {
+  color: firebrick;
+}
+
+#locationResetBtn {
+  cursor: pointer;
+  margin-left: 8px; 
+  margin-top: 36px;
+}
+
+#locationResetBtn:hover {
+  color: firebrick;
+}
+
+#hasDisplayDeviceResetBtn {
+  cursor: pointer;
+  margin-left: 8px; 
+  margin-top: 8px;
+}
+
+#hasDisplayDeviceResetBtn:hover {
+ color: firebrick;
+}
+
+#hasVideoDeviceResetBtn {
+  cursor: pointer;
+  margin-left: 8px; 
+  margin-top: 8px;
+}
+
+

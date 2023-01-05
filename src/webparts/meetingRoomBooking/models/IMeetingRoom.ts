@@ -4,4 +4,7 @@ export interface IMeetingRoom {
     capacity: number;
     location: string;
     color?: string;
+    email: string;
+    videoDeviceName?: string;
+    displayDeviceName?: string;
 }

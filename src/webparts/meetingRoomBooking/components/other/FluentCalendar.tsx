@@ -1,5 +1,5 @@
-import { Calendar, DateRangeType } from '@fluentui/react'
-import { DayOfWeek, DefaultButton, PrimaryButton, Stack, Text } from 'office-ui-fabric-react';
+import { Calendar, Callout, DateRangeType } from '@fluentui/react'
+import { DayOfWeek, DefaultButton, Link, PrimaryButton, Stack, Text, TextField } from 'office-ui-fabric-react';
 import *as React from 'react'
 import { NavigateAction, ToolbarProps } from 'react-big-calendar';
 
@@ -27,23 +27,21 @@ export const FluentCalendar = (props: IFluentCalendarProps) => {
   const jumpSevenDaysFunc = () => {
     setSelectedDate(prev => {
       const jumpSevenDays = prev.getTime() + (1000 * 60 * 60 * 24 * 7);
-      
+
       return new Date(jumpSevenDays);
     });
     props.onNext();
-    console.log(selectedDate);
   }
 
   const jumpBackSevenDaysFunc = () => {
     setSelectedDate(prev => {
       const goBackSevenDays = prev.getTime() - (1000 * 60 * 60 * 24 * 7);
-      
+
       return new Date(goBackSevenDays);
     });
     props.onPrev();
-    console.log(selectedDate);
   }
-  
+
   const jumpToTodayFunc = () => {
     setSelectedDate(prev => {
       const jumpToToday = new Date();
@@ -67,12 +65,12 @@ export const FluentCalendar = (props: IFluentCalendarProps) => {
       />
 
       <Stack horizontalAlign='space-between' horizontal tokens={{ padding: "7px", childrenGap: "9px" }} className='my-toolbar'>
-        <Stack tokens={{childrenGap: "9px"}} horizontal horizontalAlign='start'>
+        <Stack tokens={{ childrenGap: "9px" }} horizontal horizontalAlign='start'>
           <DefaultButton onClick={jumpBackSevenDaysFunc} text='Previous' />
           <DefaultButton onClick={jumpSevenDaysFunc} text='Next' />
         </Stack>
         <Stack horizontal horizontalAlign='end'>
-          <Text style={{ cursor: "pointer"}} onClick={jumpToTodayFunc}>Go to today</Text>
+          <Text style={{ cursor: "pointer" }} onClick={jumpToTodayFunc}>Go to today</Text>
         </Stack>
       </Stack>
     </div>
