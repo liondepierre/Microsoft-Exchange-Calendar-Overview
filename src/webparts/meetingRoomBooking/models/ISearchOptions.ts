@@ -4,3 +4,5 @@ export interface ISearchOptions {
     videoDevices: string[];
     displayDevices: string[];
 }
+
+//.
